@@ -1,0 +1,145 @@
+.signinPage {
+    background-image: url('https://res.cloudinary.com/dan0stbfi/image/upload/v1734358696/16d80de8a3b21eec47a3_towvnb.jpg');
+    background-size: calc(100% + 24px) calc(100% + 24px); /* Tăng kích thước nền */
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: calc(100vh + 48px); /* Tăng chiều cao */
+    margin: -24px; /* Lấn ra ngoài 24px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F9FAFC;
+}
+
+
+.signinWrapper {
+    display: flex;
+    width: 900px;
+    height: 550px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 3px solid #f17015;
+    position: relative;
+    background-color: white;
+}
+
+.signinWrapper::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, rgba(241, 112, 21, 0.2), rgba(241, 112, 21, 0.1));
+    z-index: -1;
+    border-radius: 20px;
+}
+
+.signinLogoSection {
+    flex: 1;
+    background-color: #d69259;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.signinLogo {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+.signinFormSection {
+    flex: 1;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signinContainer {
+    width: 100%;
+    max-width: 350px;
+    padding: 30px;
+    text-align: center;
+}
+
+.signinTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.signinSubtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.formGroup {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.formGroup label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.formGroup input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.signinButton {
+    width: 100%;
+    padding: 10px;
+    background-color: #f17015;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.signinButton:hover {
+    background-color: #e05500;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.googleSignin {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.signinForgotPassword {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.signinForgotPassword:hover {
+    text-decoration: underline;
+}
