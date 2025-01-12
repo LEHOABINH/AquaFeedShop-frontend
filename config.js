@@ -18,11 +18,11 @@ var config = {
   srcHtmlLayout: path.join(root, "app", "index.html"),
 
   // Site Config ====================================================
-  siteTitle: "UniEXETask",
+  siteTitle: "Thuỷ Hoà",
   siteDescription: "Platform to manage and support the Experiential Entrepreneurship subject of FPT University.",
   //siteCannonicalUrl: "https://uniexetask.netlify.app",
   siteCannonicalUrl: "https://localhost:3000",
-  siteKeywords: "uniexetask exe101 exe102 fpt",
+  siteKeywords: "Thuỷ Hoà",
 
   // Api Config =====================================================
   apiBaseUrl: "https://localhost:7251/",

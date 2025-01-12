@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { withPageConfig } from
-    './../../../components/Layout/withPageConfig';
+import { withPageConfig } from './../../../components/Layout/withPageConfig';
 import {
     Container,
 } from './../../../components';
@@ -12,12 +11,34 @@ class NavbarOnly extends React.Component {
         pageConfig: PropTypes.object
     };
 
+    // Trạng thái để lưu ảnh hiện tại
+    constructor(props) {
+        super(props);
+        this.state = {
+            imageIndex: 0,
+        };
+        this.images = [
+            "https://res.cloudinary.com/dan0stbfi/image/upload/v1734358292/cd7a39c1ff9b42c51b8a_ycllbn.jpg",
+            "https://res.cloudinary.com/dan0stbfi/image/upload/v1734358696/16d80de8a3b21eec47a3_towvnb.jpg",
+            "https://res.cloudinary.com/dan0stbfi/image/upload/v1736155995/ori_jbfgdr.jpg",
+            "https://res.cloudinary.com/dan0stbfi/image/upload/v1736156017/ori2_wrivub.jpg",
+            "https://res.cloudinary.com/dan0stbfi/image/upload/v1721367157/30e805e4b67c14224d6d.jpg" // Ảnh mới
+        ];
+    }
+
     componentDidMount() {
         const { pageConfig } = this.props;
         
         pageConfig.setElementsVisibility({
             sidebarHidden: true
         });
+
+        this.interval = setInterval(() => {
+            // Thay đổi hình ảnh sau mỗi 2 giây
+            this.setState((prevState) => ({
+                imageIndex: (prevState.imageIndex + 1) % this.images.length
+            }));
+        }, 2000);
     }
 
     componentWillUnmount() {
@@ -26,13 +47,54 @@ class NavbarOnly extends React.Component {
         pageConfig.setElementsVisibility({
             sidebarHidden: false
         });
+        
+        clearInterval(this.interval); // Dọn dẹp interval khi component unmount
     }
 
+    handleDotClick = (index) => {
+        this.setState({ imageIndex: index }); // Cập nhật hình ảnh khi click vào dot
+    };
+
     render() {
+        const { imageIndex } = this.state;
         return (
-            <Container>
+            <Container style={{ maxWidth: '1400px', margin: '0 auto' }}>
+
+                {/* Hiển thị ảnh */}
+                <div style={{ position: 'relative' }}>
+                    <img
+                        src={this.images[imageIndex]} // Lấy ảnh hiện tại từ mảng images
+                        alt="Navbar Banner"
+                        style={{ width: '1400px', height: '250px' }}
+                    />
+                    {/* Dots cho ảnh */}
+                    <div style={{
+                        position: 'absolute',
+                        bottom: '10px', // Đặt các dot ở dưới ảnh
+                        left: '50%',
+                        transform: 'translateX(-50%)', // Canh giữa các dot
+                        textAlign: 'center',
+                    }}>
+                        {this.images.map((_, index) => (
+                            <span
+                                key={index}
+                                onClick={() => this.handleDotClick(index)} // Khi click vào dot, chuyển ảnh
+                                style={{
+                                    display: 'inline-block',
+                                    width: '10px',
+                                    height: '10px',
+                                    borderRadius: '50%',
+                                    backgroundColor: index === imageIndex ? '#1EB7FF' : '#ddd',
+                                    margin: '0 5px',
+                                    cursor: 'pointer'
+                                }}
+                            />
+                        ))}
+                    </div>
+                </div>
+
                 <p className="mb-5 mt-3">
-                    Welcome to the <b>&quot;Airframe&quot;</b> Admin Dashboard Theme based on <a href="https://getbootstrap.com" className="text-primary" target="_blank" rel="noopener noreferrer">Bootstrap 4.x</a> version for React called&nbsp;
+                    one Welcome to the <b>&quot;Airframe&quot;</b> Admin Dashboard Theme based on <a href="https://getbootstrap.com" className="text-primary" target="_blank" rel="noopener noreferrer">Bootstrap 4.x</a> version for React called&nbsp;
                     <a href="https://reactstrap.github.io" className="text-primary" target="_blank" rel="noopener noreferrer">reactstrap</a> - easy to use React Bootstrap 4 components compatible with React 16+.
                 </p>
 
@@ -111,6 +173,7 @@ class NavbarOnly extends React.Component {
                         Pleace contact us through the <a href="http://wbkom.co/contact" className="text-primary" target="_blank" rel="noopener noreferrer">webkom.co/contact</a> website.
                     </p>
                 </section>
+
             </Container>
         );
     }

@@ -9,7 +9,7 @@ import {
 import Analytics from './Dashboards/Analytics';
 import ProjectsDashboard from './Dashboards/Projects';
 import System from './Dashboards/System';
-import Monitor from './Dashboards/Monitor'; 
+import Monitor from './Dashboards/Monitor';
 import Financial from './Dashboards/Financial';
 import Stock from './Dashboards/Stock';
 import Reports from './Dashboards/Reports';
@@ -19,7 +19,8 @@ import Widgets from './Widgets';
 import Cards from './Cards/Cards';
 import CardsHeaders from './Cards/CardsHeaders';
 
-import NavbarOnly from './Layouts/NavbarOnly';
+import NavbarOnly from './Views/NavbarOnly';
+
 import SidebarDefault from './Layouts/SidebarDefault';
 import SidebarA from './Layouts/SidebarA';
 import DragAndDropLayout from './Layouts/DragAndDropLayout';
@@ -100,6 +101,7 @@ import SettingsEdit from './Apps/SettingsEdit';
 import TasksList from './Views/Tasks/TasksList';
 import MyTasksList from './Views/Tasks/MyTasksList';
 import TasksKanban from './Views/Tasks/TasksKanban';
+import ProductKanban from './Views/NavbarOnly/ProductKanban';
 import MyTasksKanban from './Views/Tasks/MyTasksKanban';
 import TasksDetails from './Views/TasksDetails';
 import Users from './Apps/Users';
@@ -150,14 +152,14 @@ export const RoutedContent = () => {
     return (
         <Switch>
             <Redirect from="/" to="/auth/signin" exact />
-            
-            { /*    Cards Dashboard     */ }
+
+            { /*    Cards Dashboard     */}
             <Route path="/dashboards/mentor" exact component={MentorDashboard} />
             <Route path="/dashboards/manager" exact component={ManagerDashboard} />
 
 
             <Route path="/Views/Students/GroupsDetails" exact component={GroupsDetails} />
-            <Route path="/Views/Topic/ApproveTopicDetails" exact component={ ApproveTopicDetails } />
+            <Route path="/Views/Topic/ApproveTopicDetails" exact component={ApproveTopicDetails} />
 
 
             <Route path="/dashboards/analytics" exact component={Analytics} />
@@ -169,179 +171,180 @@ export const RoutedContent = () => {
             <Route path="/dashboards/reports" exact component={Reports} />
 
             <Route path='/widgets' exact component={Widgets} />
-            
-            { /*    Cards Routes     */ }
+
+            { /*    Cards Routes     */}
             <Route path='/cards/cards' exact component={Cards} />
             <Route path='/cards/cardsheaders' exact component={CardsHeaders} />
-            
-            { /*    Layouts     */ }
-            <Route path='/layouts/navbar' component={NavbarOnly} />
+
+            { /*    Layouts     */}
+            <Route component={ProductKanban} path="/Views/NavbarOnly/ProductKanban" />
+            <Route path='/views/home' component={NavbarOnly} />
             <Route path='/layouts/sidebar' component={SidebarDefault} />
             <Route path='/layouts/sidebar-a' component={SidebarA} />
             <Route path="/layouts/sidebar-with-navbar" component={SidebarWithNavbar} />
             <Route path='/layouts/dnd-layout' component={DragAndDropLayout} />
 
-            { /*    Interface Routes   */ }
-            <Route component={ Accordions } path="/interface/accordions" />
-            <Route component={ Alerts } path="/interface/alerts" />
-            <Route component={ Avatars } path="/interface/avatars" />
-            <Route component={ BadgesLabels } path="/interface/badges-and-labels" />
-            <Route component={ Breadcrumbs } path="/interface/breadcrumbs" />
-            <Route component={ Buttons } path="/interface/buttons" />
-            <Route component={ Colors } path="/interface/colors" />
-            <Route component={ Dropdowns } path="/interface/dropdowns" />
-            <Route component={ Images } path="/interface/images" />
-            <Route component={ ListGroups } path="/interface/list-groups" />
-            <Route component={ MediaObjects } path="/interface/media-objects" />
-            <Route component={ Modals } path="/interface/modals" />
-            <Route component={ Navbars } path="/interface/navbars" />
-            <Route component={ Paginations } path="/interface/paginations" />
-            <Route component={ ProgressBars } path="/interface/progress-bars" />
-            <Route component={ TabsPills } path="/interface/tabs-pills" />
-            <Route component={ TooltipPopovers } path="/interface/tooltips-and-popovers" />
-            <Route component={ Typography } path="/interface/typography" />
-            <Route component={ Notifications } path="/interface/notifications" />
-            <Route component={ CropImage } path="/interface/crop-image" />
-            <Route component={ DragAndDropElements } path="/interface/drag-and-drop-elements" />
-            <Route component={ Calendar } path="/interface/calendar" />
+            { /*    Interface Routes   */}
+            <Route component={Accordions} path="/interface/accordions" />
+            <Route component={Alerts} path="/interface/alerts" />
+            <Route component={Avatars} path="/interface/avatars" />
+            <Route component={BadgesLabels} path="/interface/badges-and-labels" />
+            <Route component={Breadcrumbs} path="/interface/breadcrumbs" />
+            <Route component={Buttons} path="/interface/buttons" />
+            <Route component={Colors} path="/interface/colors" />
+            <Route component={Dropdowns} path="/interface/dropdowns" />
+            <Route component={Images} path="/interface/images" />
+            <Route component={ListGroups} path="/interface/list-groups" />
+            <Route component={MediaObjects} path="/interface/media-objects" />
+            <Route component={Modals} path="/interface/modals" />
+            <Route component={Navbars} path="/interface/navbars" />
+            <Route component={Paginations} path="/interface/paginations" />
+            <Route component={ProgressBars} path="/interface/progress-bars" />
+            <Route component={TabsPills} path="/interface/tabs-pills" />
+            <Route component={TooltipPopovers} path="/interface/tooltips-and-popovers" />
+            <Route component={Typography} path="/interface/typography" />
+            <Route component={Notifications} path="/interface/notifications" />
+            <Route component={CropImage} path="/interface/crop-image" />
+            <Route component={DragAndDropElements} path="/interface/drag-and-drop-elements" />
+            <Route component={Calendar} path="/interface/calendar" />
 
-            { /*    Forms Routes    */ }
-            <Route component={ Forms } path="/forms/forms" />
-            <Route component={ FormsLayouts } path="/forms/forms-layouts" />
-            <Route component={ InputGroups } path="/forms/input-groups" />
-            <Route component={ Wizard } path="/forms/wizard" />
-            <Route component={ TextMask } path="/forms/text-mask" />
-            <Route component={ Typeahead } path="/forms/typeahead" />
-            <Route component={ Toggles } path="/forms/toggles" />
-            <Route component={ Editor } path="/forms/editor" />
-            <Route component={ DatePicker } path="/forms/date-picker" />
-            <Route component={ Dropzone } path="/forms/dropzone" />
-            <Route component={ Sliders } path="/forms/sliders" />
-            
-            { /*    Graphs Routes   */ }
-            <Route component={ ReCharts } path="/graphs/re-charts" />
+            { /*    Forms Routes    */}
+            <Route component={Forms} path="/forms/forms" />
+            <Route component={FormsLayouts} path="/forms/forms-layouts" />
+            <Route component={InputGroups} path="/forms/input-groups" />
+            <Route component={Wizard} path="/forms/wizard" />
+            <Route component={TextMask} path="/forms/text-mask" />
+            <Route component={Typeahead} path="/forms/typeahead" />
+            <Route component={Toggles} path="/forms/toggles" />
+            <Route component={Editor} path="/forms/editor" />
+            <Route component={DatePicker} path="/forms/date-picker" />
+            <Route component={Dropzone} path="/forms/dropzone" />
+            <Route component={Sliders} path="/forms/sliders" />
 
-            { /*    Tables Routes   */ }
-            <Route component={ Tables } path="/tables/tables" />
-            <Route component={ FindGroups } path="/Views/Students/FindGroups" />
-            <Route component={ MyFindGroup } path="/Views/Students/MyFindGroup" />
-            <Route component={ MyTopic } path="/Views/Students/MyTopic" />
-            <Route component={ ViewTopicMentor } path="/Views/Students/ViewTopicMentor" />
-            <Route component={ ApproveTopic } path="/Views/Topic/ApproveTopic" />
-            <Route component={ TopicForMentor } path="/Views/Topic/TopicForMentor" />
+            { /*    Graphs Routes   */}
+            <Route component={ReCharts} path="/graphs/re-charts" />
 
-
-            <Route component={ MyGroup } path="/Views/Students/MyGroup" />
-            <Route component={ Groups } path="/Views/Students/Groups" />
-            <Route component={ ExtendedTable } path="/tables/extended-table" />
-            <Route component={ RolePermission } path="/views/role-permission" />
-            <Route component={ User } path="/views/users" />
-            <Route component={ ChatGroup } path="/views/chat" />
-            <Route component={ MeetingSchedule } path="/views/meeting-schedule" />
-            <Route component={ Workshop } path="/views/workshop" />
-            <Route component={ Timeline } path="/views/timeline" />
-            <Route component={ AgGrid } path="/tables/ag-grid" />
-
-            { /*    Apps Routes     */ }
-            <Route component={ AccountEdit } path="/Views/Profile/AccountEdit" />
-            <Route component={ BillingEdit } path="/apps/billing-edit" />
-            <Route component={ Chat } path="/apps/chat" />
-            <Route component={ Clients } path="/apps/clients" />
-            <Route component={ EmailDetails } path="/apps/email-details" />
-            <Route component={ Files } path="/apps/files/:type"/>
-            <Route component={ GalleryGrid } path="/apps/gallery-grid" />
-            <Route component={ GalleryTable } path="/apps/gallery-table" />
-            <Route component={ ImagesResults } path="/apps/images-results" />
-            <Route component={ Inbox } path="/apps/inbox" />
-            <Route component={ NewEmail } path="/apps/new-email" />
-            <Route component={ ProjectMentor } path="/Views/Projects/ProjectMentor" />
-            <Route component={ ProfileDetails } path="/Views/Profile/ProfileDetails" />
-            <Route component={ ViewProfile } path="/Views/Profile/ViewProfile/:userId" />
-            <Route component={ ProfileDetailsDemo } path="/apps/ProfileDetailsDemo" />
-            <Route component={ ProfileEdit } path="/Views/Profile/ProfileEdit" />
-            <Route component={ Projects } path="/apps/projects/:type" />
-            <Route component={ SearchResults } path="/apps/search-results" />
-            <Route component={ SessionsEdit } path="/apps/sessions-edit" />
-            <Route component={ SettingsEdit } path="/apps/settings-edit" />
-            <Route component={ TasksList } path="/apps/tasks-list" />
-            <Route component={ MyTasksList } path="/apps/my-tasks-list" />
-            <Route component={ TasksKanban } path="/apps/tasks-kanban" />
-            <Route component={ MyTasksKanban } path="/apps/my-tasks-kanban" />
-            <Route component={ TasksDetails } path="/apps/task-details/:taskId" />
-            <Route component={ ProjectProgressMentor } path="/apps/mentor/project/progress/:projectId" />
-            <Route component={ ProjectProgressStudent } path="/apps/student/project/progress" />
-            <Route component={ ExeSyllabus } path="/apps/syllabus/exe" />
-            <Route component={ ConfigSystem } path="/views/configsystem" />
-            <Route component={ Group } path="/views/group" />
-
-            <Route component={ ForgotPassword } path="/auth/forgotpassword" />
-            <Route component={ MileStones } path="/apps/milestones" />
-            <Route component={ Documents } path="/apps/mentor/project/document/:projectId" />
+            { /*    Tables Routes   */}
+            <Route component={Tables} path="/tables/tables" />
+            <Route component={FindGroups} path="/Views/Students/FindGroups" />
+            <Route component={MyFindGroup} path="/Views/Students/MyFindGroup" />
+            <Route component={MyTopic} path="/Views/Students/MyTopic" />
+            <Route component={ViewTopicMentor} path="/Views/Students/ViewTopicMentor" />
+            <Route component={ApproveTopic} path="/Views/Topic/ApproveTopic" />
+            <Route component={TopicForMentor} path="/Views/Topic/TopicForMentor" />
 
 
-            <Route component={ Users } path="/apps/users/:type" />
-            <Route component={ UsersResults } path="/apps/users-results" />
-            <Route component={ VideosResults } path="/apps/videos-results" />
+            <Route component={MyGroup} path="/Views/Students/MyGroup" />
+            <Route component={Groups} path="/Views/Students/Groups" />
+            <Route component={ExtendedTable} path="/tables/extended-table" />
+            <Route component={RolePermission} path="/views/role-permission" />
+            <Route component={User} path="/views/users" />
+            <Route component={ChatGroup} path="/views/chat" />
+            <Route component={MeetingSchedule} path="/views/meeting-schedule" />
+            <Route component={Workshop} path="/views/workshop" />
+            <Route component={Timeline} path="/views/timeline" />
+            <Route component={AgGrid} path="/tables/ag-grid" />
 
-            { /*    Pages Routes    */ }
-            <Route component={ ComingSoon } path="/pages/coming-soon" />
-            <Route component={ Confirmation } path="/pages/confirmation" />
-            <Route component={ Danger } path="/pages/danger" />
-            <Route component={ Error404 } path="/pages/error-404" />
-            <Route component={ LockScreen } path="/pages/lock-screen" />
-            <Route component={ Login } path="/pages/login" />
-            <Route component={ Register } path="/pages/register" />
-            <Route component={ Success } path="/pages/success" />
+            { /*    Apps Routes     */}
+            <Route component={AccountEdit} path="/Views/Profile/AccountEdit" />
+            <Route component={BillingEdit} path="/apps/billing-edit" />
+            <Route component={Chat} path="/apps/chat" />
+            <Route component={Clients} path="/apps/clients" />
+            <Route component={EmailDetails} path="/apps/email-details" />
+            <Route component={Files} path="/apps/files/:type" />
+            <Route component={GalleryGrid} path="/apps/gallery-grid" />
+            <Route component={GalleryTable} path="/apps/gallery-table" />
+            <Route component={ImagesResults} path="/apps/images-results" />
+            <Route component={Inbox} path="/apps/inbox" />
+            <Route component={NewEmail} path="/apps/new-email" />
+            <Route component={ProjectMentor} path="/Views/Projects/ProjectMentor" />
+            <Route component={ProfileDetails} path="/Views/Profile/ProfileDetails" />
+            <Route component={ViewProfile} path="/Views/Profile/ViewProfile/:userId" />
+            <Route component={ProfileDetailsDemo} path="/apps/ProfileDetailsDemo" />
+            <Route component={ProfileEdit} path="/Views/Profile/ProfileEdit" />
+            <Route component={Projects} path="/apps/projects/:type" />
+            <Route component={SearchResults} path="/apps/search-results" />
+            <Route component={SessionsEdit} path="/apps/sessions-edit" />
+            <Route component={SettingsEdit} path="/apps/settings-edit" />
+            <Route component={TasksList} path="/apps/tasks-list" />
+            <Route component={MyTasksList} path="/apps/my-tasks-list" />
+            <Route component={TasksKanban} path="/apps/tasks-kanban" />
+            <Route component={MyTasksKanban} path="/apps/my-tasks-kanban" />
+            <Route component={TasksDetails} path="/apps/task-details/:taskId" />
+            <Route component={ProjectProgressMentor} path="/apps/mentor/project/progress/:projectId" />
+            <Route component={ProjectProgressStudent} path="/apps/student/project/progress" />
+            <Route component={ExeSyllabus} path="/apps/syllabus/exe" />
+            <Route component={ConfigSystem} path="/views/configsystem" />
+            <Route component={Group} path="/views/group" />
+
+            <Route component={ForgotPassword} path="/auth/forgotpassword" />
+            <Route component={MileStones} path="/apps/milestones" />
+            <Route component={Documents} path="/apps/mentor/project/document/:projectId" />
+
+
+            <Route component={Users} path="/apps/users/:type" />
+            <Route component={UsersResults} path="/apps/users-results" />
+            <Route component={VideosResults} path="/apps/videos-results" />
+
+            { /*    Pages Routes    */}
+            <Route component={ComingSoon} path="/pages/coming-soon" />
+            <Route component={Confirmation} path="/pages/confirmation" />
+            <Route component={Danger} path="/pages/danger" />
+            <Route component={Error404} path="/pages/error-404" />
+            <Route component={LockScreen} path="/pages/lock-screen" />
+            <Route component={Login} path="/pages/login" />
+            <Route component={Register} path="/pages/register" />
+            <Route component={Success} path="/pages/success" />
             {/* <Route component={ Timeline } path="/pages/timeline" /> */}
 
             <Route path='/icons' exact component={Icons} />
-            { /*    New Edit    */ }
-            <Route component={ SignIn } path="/auth/signin" />
+            { /*    New Edit    */}
+            <Route component={ SignIn } path="/auth/signin" /> 
 
 
-            { /*    404    */ }
+            { /*    404    */}
             <Redirect to="/pages/error-404" />
         </Switch>
     );
 };
 
 //------ Custom Layout Parts --------
-export const RoutedNavbars  = () => (
+export const RoutedNavbars = () => (
     <Switch>
         { /* Other Navbars: */}
         <Route
-            component={ SidebarANavbar }
+            component={SidebarANavbar}
             path="/layouts/sidebar-a"
         />
         <Route
-            component={ NavbarOnly.Navbar }
-            path="/layouts/navbar"
+            component={NavbarOnly.Navbar}
+            path="/views/home"
         />
         <Route
-            component={ SidebarWithNavbar.Navbar }
+            component={SidebarWithNavbar.Navbar}
             path="/layouts/sidebar-with-navbar"
         />
         { /* Default Navbar: */}
         <Route
-            component={ DefaultNavbar }
+            component={DefaultNavbar}
         />
-    </Switch>  
+    </Switch>
 );
 
 export const RoutedSidebars = () => (
     <Switch>
         { /* Other Sidebars: */}
         <Route
-            component={ SidebarASidebar }
+            component={SidebarASidebar}
             path="/layouts/sidebar-a"
         />
         <Route
-            component={ SidebarWithNavbar.Sidebar }
+            component={SidebarWithNavbar.Sidebar}
             path="/layouts/sidebar-with-navbar"
         />
         { /* Default Sidebar: */}
         <Route
-            component={ DefaultSidebar }
+            component={DefaultSidebar}
         />
     </Switch>
 );

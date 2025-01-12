@@ -38,9 +38,18 @@ const Navbar = ({
             { ...otherProps }
         >
             {
-                <Container className="navbar-collapse-wrap" fluid={ fluid }>
-                    { children }
-                </Container>
+                <Container
+                className="navbar-collapse-wrap"
+                style={{
+                    display: 'flex',
+                    maxWidth: fluid ? '100%' : '1400px',
+                    margin: '0 auto',
+                    width: '100%',
+                }}
+            >
+                {children}
+            </Container>
+            
             }
         </BSNavbar>
     )

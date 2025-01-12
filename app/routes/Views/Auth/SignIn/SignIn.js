@@ -70,8 +70,8 @@ const SignIn = () => {
             );
 
             if (response.data.success) {
-                //handleLoginSuccess(response.data.data);
-                alert("Đăng nhập thành công");
+                history.push('/views/home');
+                //alert("Đăng nhập thành công");
             } else {
                 setError(response.data.errorMessage || 'Login failed');
             }

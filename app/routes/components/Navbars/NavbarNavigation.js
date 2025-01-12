@@ -28,12 +28,12 @@ const NavbarNavigation = ({ accent, pills, ...navbarProps }) => (
         </NavItem>
         <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav>
-                Dashboards
+                CATEGORIE
                 <i className="fa fa-angle-down fa-fw ml-1"></i>
             </DropdownToggle>
             <DropdownMenu>
-                <DropdownItem tag={ Link } to="/dashboards/analytics">Analytics</DropdownItem>
-                <DropdownItem tag={ Link } to="/dashboards/projects">Projects</DropdownItem>
+                <DropdownItem tag={ Link } to="/dashboards/analytics">Grobest</DropdownItem>
+                <DropdownItem tag={ Link } to="/dashboards/projects">Thăng Long</DropdownItem>
             </DropdownMenu>
         </UncontrolledDropdown>
 

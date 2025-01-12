@@ -72,35 +72,35 @@ const NavbarActivityFeed = (props) => {
   }, []);
 
   const fetchNotifications = async (pageNumber) => {
-    try {
-      const response = await axios.get(
-        `${config.apiBaseUrl}api/notifications`,
-        {
-          params: {
-            notificationIndex: pageNumber,
-            limit: 10,
-            keyword: "",
-          },
-          withCredentials: true
-        }
-      );
-      if (response.data.success) {
-        const newNotifications = response.data.data.notifications;
-        if (pageNumber === 0) {
-          setNotificationData(newNotifications);
-        } else {
-          setNotificationData((prevData) => [...prevData, ...newNotifications]);
-        }
-        setHasMoreNotification(newNotifications.length === 10);
-        setUnreadNotification(response.data.data.unreadNotifications);
-      } else {
-        console.error(response.data.errorMessage);
-      }
-    } catch (error) {
-      console.error("Lỗi khi lấy thông báo:", error);
-    } finally {
-      isInitialFetch.current = false;
-    }
+    // try {
+    //   const response = await axios.get(
+    //     `${config.apiBaseUrl}api/notifications`,
+    //     {
+    //       params: {
+    //         notificationIndex: pageNumber,
+    //         limit: 10,
+    //         keyword: "",
+    //       },
+    //       withCredentials: true
+    //     }
+    //   );
+    //   if (response.data.success) {
+    //     const newNotifications = response.data.data.notifications;
+    //     if (pageNumber === 0) {
+    //       setNotificationData(newNotifications);
+    //     } else {
+    //       setNotificationData((prevData) => [...prevData, ...newNotifications]);
+    //     }
+    //     setHasMoreNotification(newNotifications.length === 10);
+    //     setUnreadNotification(response.data.data.unreadNotifications);
+    //   } else {
+    //     console.error(response.data.errorMessage);
+    //   }
+    // } catch (error) {
+    //   console.error("Lỗi khi lấy thông báo:", error);
+    // } finally {
+    //   isInitialFetch.current = false;
+    // }
   };
 
   //Fetch Notification when load page
