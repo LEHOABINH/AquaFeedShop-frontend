@@ -2,8 +2,8 @@
 import React from "react";
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "../../../../components";
 import axios from "axios";
-import config from "./../../../../../config";
-import { showToast } from "./../../Utils/Toast";
+import config from "../../../../../config";
+import { showToast } from "../../Utils/Toast";
 
 const ModelDeleteMessage = ({ isOpen, toggle, messageId}) => {
     const handleDeleteMessage = async () => {

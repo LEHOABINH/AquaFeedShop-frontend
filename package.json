@@ -72,6 +72,7 @@
     "node-fetch": "^2.6.0",
     "numeral": "^2.0.6",
     "prop-types": "^15.7.2",
+    "qrcode.react": "^4.2.0",
     "query-string": "^6.7.0",
     "rc-slider": "^8.6.13",
     "react": "^16.8.6",

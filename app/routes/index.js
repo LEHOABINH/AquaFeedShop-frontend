@@ -18,8 +18,11 @@ import Widgets from './Widgets';
 
 import Cards from './Cards/Cards';
 import CardsHeaders from './Cards/CardsHeaders';
-
-import NavbarOnly from './Views/NavbarOnly';
+//------------------------------------------------------------------------------------------
+import Product from './Views/Product';
+import ProductDetails from './Views/ProductDetails';
+import Order from './Views/Order';
+import Payment from './Views/Payment';
 
 import SidebarDefault from './Layouts/SidebarDefault';
 import SidebarA from './Layouts/SidebarA';
@@ -101,7 +104,6 @@ import SettingsEdit from './Apps/SettingsEdit';
 import TasksList from './Views/Tasks/TasksList';
 import MyTasksList from './Views/Tasks/MyTasksList';
 import TasksKanban from './Views/Tasks/TasksKanban';
-import ProductKanban from './Views/NavbarOnly/ProductKanban';
 import MyTasksKanban from './Views/Tasks/MyTasksKanban';
 import TasksDetails from './Views/TasksDetails';
 import Users from './Apps/Users';
@@ -176,9 +178,11 @@ export const RoutedContent = () => {
             <Route path='/cards/cards' exact component={Cards} />
             <Route path='/cards/cardsheaders' exact component={CardsHeaders} />
 
-            { /*    Layouts     */}
-            <Route component={ProductKanban} path="/Views/NavbarOnly/ProductKanban" />
-            <Route path='/views/home' component={NavbarOnly} />
+            { /*    Layouts      ---------------------------------------------------------              */}
+            <Route path='/views/home' component={Product} />
+            <Route path='/views/product-details/:productId' component={ProductDetails} />
+            <Route path='/views/order' component={Order} />
+            <Route path='/views/payment' component={Payment} />
             <Route path='/layouts/sidebar' component={SidebarDefault} />
             <Route path='/layouts/sidebar-a' component={SidebarA} />
             <Route path="/layouts/sidebar-with-navbar" component={SidebarWithNavbar} />
@@ -317,7 +321,7 @@ export const RoutedNavbars = () => (
             path="/layouts/sidebar-a"
         />
         <Route
-            component={NavbarOnly.Navbar}
+            component={Product.Navbar}
             path="/views/home"
         />
         <Route
@@ -326,7 +330,7 @@ export const RoutedNavbars = () => (
         />
         { /* Default Navbar: */}
         <Route
-            component={DefaultNavbar}
+            component={Product.Navbar}
         />
     </Switch>
 );

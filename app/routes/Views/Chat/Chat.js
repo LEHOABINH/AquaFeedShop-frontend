@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import axios from "axios";
 import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
-import config from "./../../../../config";
+import config from "../../../../config";
 import useAuth from "../../../../hooks/useAuth";
 import { AsyncTypeahead } from "react-bootstrap-typeahead";
 import {
@@ -31,13 +31,13 @@ import {
   Modal,
   Table,
   Spinner,
-} from "./../../../components";
-import { randomAvatar } from "./../../../utilities";
+} from "../../../components";
+import { randomAvatar } from "../../../utilities";
 import InfiniteScroll from "react-infinite-scroll-component";
-import getFormattedTime from './../Utils/timeFormatter';
-import { showToast } from "./../Utils/Toast";
+import getFormattedTime from '../Utils/timeFormatter';
+import { showToast } from "../Utils/Toast";
 import { Link } from "react-router-dom";
-import ContactModal from './../Students/components/ContactModal';
+import ContactModal from '../Students/components/ContactModal';
 import ConfirmDeleteMessageModal from "./components/ModelDeleteMessage";
 
 

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import config from './../../../../config';
-import { showToast } from "./../Utils/Toast";
+import config from '../../../../config';
+import { showToast } from "../Utils/Toast";
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-
+import { NavbarCart } from './components/NavbarCart';
 import {
     Container,
     Row,
@@ -19,7 +19,7 @@ import {
     ModalBody,
     ModalFooter,
     Button,
-} from './../../../components';
+} from '../../../components';
 
 
 import { TasksCardGrid } from "./components/TasksCardGrid";
@@ -46,7 +46,7 @@ const ProductKanban = () => {
     };
 
     useEffect(() => {
-        fetchProduct(); // Gọi API khi component được mount
+        fetchProduct(); 
     }, []);
 
     return (
@@ -57,6 +57,7 @@ const ProductKanban = () => {
                         <Row>
                             {data.map((product, index) => (
                                 <Col lg={3} md={6} sm={12} key={index} style={{ marginBottom: '20px' }}>
+                                   
                                     <TasksCardGrid
                                         productName={product.productName}
                                         price={product.price}

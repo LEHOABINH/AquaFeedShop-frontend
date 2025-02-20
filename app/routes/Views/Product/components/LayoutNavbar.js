@@ -17,8 +17,8 @@ import { randomAvatar } from './../../../../utilities';
 
 import { NavbarActivityFeed } from
     './../../../../layout/components/NavbarActivityFeed';
-import { NavbarMessages } from
-    './NavbarMessages';
+import { NavbarCart } from
+    './NavbarCart';
 import { NavbarUser } from
     './../../../../layout/components/NavbarUser';
 import { DropdownProfile } from
@@ -30,7 +30,8 @@ import { LogoThemed } from
 
 export const LayoutNavbar = () => (
     <React.Fragment>
-        <Navbar light expand="lg" themed>
+        <Navbar light expand="lg" themed style={{ position: 'sticky', background: '#F9FAFC', top: 0, zIndex: 1000 }}>
+
             <Link to="/" className="navbar-brand mr-0 mr-sm-3">
                 <LogoThemed className="mb-1" checkBackground />
             </Link>
@@ -49,7 +50,7 @@ export const LayoutNavbar = () => (
             { /* END Navbar: Left Side */ }
             { /* START Navbar: Right Side */ }
             <Nav className="ml-auto" pills>
-                <NavbarMessages />
+                <NavbarCart />
                 <NavbarActivityFeed />
                 { /* START Navbar: Dropdown */ }
                 <UncontrolledDropdown nav inNavbar>
@@ -81,20 +82,6 @@ export const LayoutNavbar = () => (
             { /* END Navbar: Right Side */ }
         </Navbar>
 
-        <Navbar light shadow expand="lg" className="py-3 bg-white">
-            <h1 className="mb-0 h4">
-                Navbar Only
-            </h1>
-            
-            <ThemeConsumer>
-            {
-                ({ color }) => (
-                    <Button color={ color } className="px-4 my-sm-0">
-                        Download <i className="fa ml-1 fa-fw fa-download"></i>
-                    </Button>
-                )
-            }
-            </ThemeConsumer>
-        </Navbar>
+
     </React.Fragment>
 );

@@ -144,18 +144,29 @@ const SignIn = () => {
         <EmptyLayout>
             <div className={styles.signinPage}>
             <div className={styles.signinWrapper}>
-                <div className={styles.signinLogoSection} style={{backgroundColor: "#f9e0cf"}}>
-                    <img 
-                        src="https://res.cloudinary.com/dan0stbfi/image/upload/v1733752123/logo_uniexetask_background_removal_vqirgk.png" 
-                        alt="UniEXETask Logo" 
-                        className={styles.signinLogo}
-                    />
-                </div>
+            <div
+  className={styles.signinLogoSection}
+  style={{
+    background: "linear-gradient(to bottom, #5df1f4, #5df1f4, #5df1f4, #41eaf5, #2fdff1, #22d3ef, #1fc1ee, #1fc1ee, #1fc1ee)",  // Áp dụng gradient theo các màu sắc bạn yêu cầu
+  }}
+>
+  <img
+    src="https://res.cloudinary.com/dan0stbfi/image/upload/v1737389312/Logo_iowj5c.png"
+    alt="UniEXETask Logo"
+    className={styles.signinLogo}
+    style={{
+      width: "77%",  // Đặt chiều rộng của ảnh là 77% của div
+      height: "100%", // Đặt chiều cao của ảnh là 100% của div
+      objectFit: "cover",  // Đảm bảo ảnh không bị biến dạng, sẽ phủ kín div
+    }}
+  />
+</div>
+
                 <div className={styles.signinFormSection}>
                     <div className={styles.signinContainer}>
-                        <h1 className={styles.signinTitle}>Sign In to UniEXETask</h1>
+                        <h1 className={styles.signinTitle}>Sign In to Thuỷ Hoà Store</h1>
                         <p className={styles.signinSubtitle}>
-                            Access your account with your email or FPT Mail.
+                            Access your account with your email.
                         </p>
                         <form className={styles.signinForm} onSubmit={handleSubmit}>
                             <div className={styles.formGroup}>

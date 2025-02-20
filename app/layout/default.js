@@ -19,12 +19,12 @@ import {
 } from './../routes';
 
 const favIcons = [
-    { rel: 'icon', type: 'image/x-icon', href: 'https://res.cloudinary.com/dan0stbfi/image/upload/v1733752159/logo_uniexetask_aajlav.png' },
+    { rel: 'icon', type: 'image/x-icon', href: 'https://res.cloudinary.com/dan0stbfi/image/upload/v1737389312/Logo_iowj5c.png' },
 
-    { rel: 'apple-touch-icon', sizes: '180x180', href: 'https://res.cloudinary.com/dan0stbfi/image/upload/v1733752159/logo_uniexetask_aajlav.png' },
+    { rel: 'apple-touch-icon', sizes: '180x180', href: 'https://res.cloudinary.com/dan0stbfi/image/upload/v1737389312/Logo_iowj5c.png' },
 
-    { rel: 'icon', type: 'image/png', sizes: '32x32', href: 'https://res.cloudinary.com/dan0stbfi/image/upload/v1733752159/logo_uniexetask_aajlav.png' },
-    { rel: 'icon', type: 'image/png', sizes: '16x16', href: 'https://res.cloudinary.com/dan0stbfi/image/upload/v1733752159/logo_uniexetask_aajlav.png' }
+    { rel: 'icon', type: 'image/png', sizes: '32x32', href: 'https://res.cloudinary.com/dan0stbfi/image/upload/v1737389312/Logo_iowj5c.png' },
+    { rel: 'icon', type: 'image/png', sizes: '16x16', href: 'https://res.cloudinary.com/dan0stbfi/image/upload/v1737389312/Logo_iowj5c.png' }
 ];
 
 class AppLayout extends React.Component {

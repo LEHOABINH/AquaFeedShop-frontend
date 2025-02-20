@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import config from './../../../../config';
-import { withPageConfig } from './../../../components/Layout/withPageConfig';
+import config from '../../../../config';
+import { withPageConfig } from '../../../components/Layout/withPageConfig';
 import { ProjectsSmHeader } from "../../components/Projects/ProjectsSmHeader";
 import { TasksCardGrid } from "./components/TasksCardGrid";
 import ProductKanban  from "./ProductKanban";
@@ -17,7 +17,7 @@ import {
     CardColumns,
     Badge,
     UncontrolledTooltip
-} from './../../../components';
+} from '../../../components';
 
 class NavbarOnly extends React.Component {
     static propTypes = {
